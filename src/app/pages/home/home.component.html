@@ -16,7 +16,7 @@
     <tbody>
       <tr *ngFor="let time of climaDados.hourly.time; let i = index">
         <td>{{ datatemperaturaMinima }}</td>
-        <td>{{ datatemperaturaMaxima }}</td> 
+        <td>{{ climaDados.hourly.temperature_2m[i] }} °C</td>
       </tr>
     </tbody>
   </table>
