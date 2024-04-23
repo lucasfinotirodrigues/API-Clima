@@ -1,0 +1,52 @@
+.container-table {
+  padding: 0px 125px;
+  margin-top: 100px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-radius: 8px;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  .aprovar-acesso, .negar-acesso {
+      width: 36px;
+      height: 36px;
+      border: none;
+      border-radius: 5px;
+  }
+
+  .aprovar-acesso {
+      background-color: #28A745;
+  }
+  .negar-acesso {
+      background-color: red;
+  }
+}
+th {
+  padding: 18px 5px;
+  background-color: #408CFF;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+}
+
+.first {
+  border-radius: 12px 0 0 0 ;
+}
+
+.second {
+  border-radius: 0 12px 0 0 ;
+}
+
+tr:nth-child(even) {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #FBFBFB;
+  border-radius: 8px;
+}
