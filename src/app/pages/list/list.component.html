@@ -1,0 +1,46 @@
+<form (submit)="submitForm()">
+  <label for="latitude">Latitude:</label>
+  <input type="text" id="latitude" name="latitude" [(ngModel)]="latitude" required>
+
+  <label for="longitude">Longitude:</label>
+  <input type="text" id="longitude" name="longitude" [(ngModel)]="longitude" required>
+
+  <label for="date">Date:</label>
+  <input type="date" id="date" name="date" [(ngModel)]="date" required>
+
+  <button type="submit">Pesquisar</button>
+</form>
+<!--
+<div *ngIf="climaDados">
+  <h3>Weather Information</h3>
+  <p>Latitude: {{ climaDados.latitude }}</p>
+  <p>Longitude: {{ climaDados.longitude }}</p>
+  <p>Elevação: {{ climaDados.elevation }}</p>
+  <p>Temperatura Mínima: {{ climaDados.hourly.temperature_2m[0] }}°C</p>
+  <p>Temperatura Máxima: {{ climaDados.hourly.temperature_2m[23] }}°C</p>
+</div> -->
+
+
+
+<div class="container-table" *ngIf="climaDados">
+  <table>
+    <thead>
+      <tr>
+        <th class="first">Latitude</th>
+        <th>Longitude</th>
+        <th>Elevação</th>
+        <th>Temperatura Mínima</th>
+        <th class="second">Temperatura Máxima</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ climaDados.latitude }}</td>
+        <td>{{ climaDados.longitude }}</td>
+        <td>{{ climaDados.elevation }}</td>
+        <td>{{ climaDados.hourly.temperature_2m[0] }}°C</td>
+        <td>{{ climaDados.hourly.temperature_2m[23] }}°C</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
