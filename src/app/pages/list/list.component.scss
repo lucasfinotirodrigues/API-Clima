@@ -59,3 +59,47 @@ tr:nth-child(odd) {
 .max {
   color: #f00
 }
+
+.forms {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  padding-top: 20px;
+  height: 80px;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      color: #858E97
+    }
+
+    input {
+      font-size: 16px;
+      padding: 8px;
+      height: 20px;
+      border: 1px solid #CDD4DA;
+      border-radius: 8px;
+    }
+  }
+
+  button {
+    margin-top: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #408CFF;
+    cursor: pointer;
+    color: #fff;
+    height: 36px;
+    width: 36px;
+
+    &:hover {
+      background-color: #377adf;
+      transition: 0.3s;
+    }
+  }
+}
+
