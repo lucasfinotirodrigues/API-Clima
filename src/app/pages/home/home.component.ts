@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
+import * as dayjs from 'dayjs';
+
 
 @Component({
   selector: 'app-home',
@@ -36,15 +38,21 @@ export class HomeComponent implements OnInit{
   }
 
   calcularMinMaxTemperatura(): void {
-    this.temperaturaMinima = Math.min(...this.climaDados.hourly.temperature_2m);
-    this.temperaturaMaxima = Math.max(...this.climaDados.hourly.temperature_2m);
-    this.calculateMinMaxTemperatureTime();
-  }
-
-  calculateMinMaxTemperatureTime() {
     const minIndex = this.climaDados.hourly.temperature_2m.indexOf(this.temperaturaMinima);
     const maxIndex = this.climaDados.hourly.temperature_2m.indexOf(this.temperaturaMaxima);
-    this.datatemperaturaMinima = this.climaDados.hourly.time[minIndex];
-    this.datatemperaturaMaxima = this.climaDados.hourly.time[maxIndex];
+
+    const minDate = this.climaDados.hourly.time[minIndex];
+    const maxDate = this.climaDados.hourly.time[maxIndex];
+    this.datatemperaturaMinima = dayjs(minDate).format('DD/MM/YYYY HH:mm');
+    this.datatemperaturaMaxima = dayjs(maxDate).format('DD/MM/YYYY HH:mm');
+    this.calcularMinMaxDataTemperatura();
   }
+
+  calcularMinMaxDataTemperatura() {
+    const minIndex = this.climaDados.hourly.temperature_2m.indexOf(this.temperaturaMinima);
+    const maxIndex = this.climaDados.hourly.temperature_2m.indexOf(this.temperaturaMaxima);
+    this.datatemperaturaMinima = dayjs(this.climaDados.hourly.time[minIndex]).format('DD/MM/YYYY HH:mm');
+    this.datatemperaturaMaxima = dayjs(this.climaDados.hourly.time[maxIndex]).format('DD/MM/YYYY HH:mm');
+  }
+
 }
